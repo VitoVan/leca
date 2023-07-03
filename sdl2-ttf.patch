@@ -1,0 +1,126 @@
+diff --git a/.github/workflows/calm.yml b/.github/workflows/calm.yml
+index 7d9a208..968fb5b 100644
+--- a/.github/workflows/calm.yml
++++ b/.github/workflows/calm.yml
+@@ -288,7 +288,7 @@ jobs:
+         run: |
+           set -x
+           ls -lah
+-          pacman -S --noconfirm --needed unzip
++          pacman -S --noconfirm --needed unzip gcc libffi-devel
+           unzip calm.zip
+           ls -lah calm
+           export PATH=$PATH:$(pwd)/calm/
+@@ -453,7 +453,7 @@ jobs:
+         run: |
+           set -x
+           ls -lah
+-          pacman -S --noconfirm --needed unzip
++          pacman -S --noconfirm --needed unzip gcc libffi-devel
+           unzip calm.zip
+           ls -lah calm
+           export PATH=$PATH:$(pwd)/calm/
+@@ -617,7 +617,7 @@ jobs:
+         run: |
+           set -x
+           ls -lah
+-          pacman -S --noconfirm --needed unzip
++          pacman -S --noconfirm --needed unzip gcc libffi-devel
+           unzip calm.zip
+           ls -lah calm
+           export PATH=$PATH:$(pwd)/calm/
+@@ -808,7 +808,7 @@ jobs:
+         run: |
+           set -x
+           ls -lah
+-          pacman -S --noconfirm --needed unzip
++          pacman -S --noconfirm --needed unzip gcc libffi-devel
+           unzip calm.zip
+           ls -lah calm
+           export PATH=$PATH:$(pwd)/calm/
+diff --git a/calm.asd b/calm.asd
+index aea6583..ec19b11 100644
+--- a/calm.asd
++++ b/calm.asd
+@@ -7,6 +7,7 @@
+                #:sdl2
+                #:sdl2-mixer
+                #:sdl2-image
++               #:sdl2-ttf
+                #:str
+                #:swank
+                #:bt-semaphore
+diff --git a/s/dev/all/copy-lib.lisp b/s/dev/all/copy-lib.lisp
+index 29c71dd..e560e48 100644
+--- a/s/dev/all/copy-lib.lisp
++++ b/s/dev/all/copy-lib.lisp
+@@ -13,7 +13,8 @@
+                        (uiop:merge-pathnames* lib-pathname "/usr/local/lib/")
+                        #+win32
+                        (uiop:merge-pathnames* lib-pathname "/mingw64/bin/"))
+-                      " ./lib/" )))))
++                      " ./lib/" )
++          :ignore-error-status t))))
+  (cffi:list-foreign-libraries :loaded-only t))
+ 
+ (quit)
+diff --git a/s/dev/darwin/config-lib.sh b/s/dev/darwin/config-lib.sh
+index cf1da96..149a4ad 100644
+--- a/s/dev/darwin/config-lib.sh
++++ b/s/dev/darwin/config-lib.sh
+@@ -43,6 +43,9 @@ ln -s libSDL2_mixer-2.0.0.dylib libSDL2_mixer.dylib
+ rm libSDL2_image.dylib
+ ln -s libSDL2_image-2.0.0.dylib libSDL2_image.dylib
+ 
++rm libSDL2_ttf.dylib
++ln -s libSDL2_ttf-2.0.0.dylib libSDL2_ttf.dylib
++
+ rm libcairo.dylib
+ ln -s libcairo.2.dylib libcairo.dylib
+ 
+diff --git a/s/dev/darwin/deps.sh b/s/dev/darwin/deps.sh
+index 0553993..48d8053 100644
+--- a/s/dev/darwin/deps.sh
++++ b/s/dev/darwin/deps.sh
+@@ -4,8 +4,9 @@ brew install git \
+      sdl2 \
+      sdl2_mixer \
+      sdl2_image \
++     sdl2_ttf \
++     libffi \
+      cairo \
+      pango \
+      gobject-introspection \
+      fontconfig
+-
+diff --git a/s/dev/fedora/deps.sh b/s/dev/fedora/deps.sh
+index 7648bc5..e7b7d0e 100644
+--- a/s/dev/fedora/deps.sh
++++ b/s/dev/fedora/deps.sh
+@@ -10,6 +10,9 @@ sudo dnf install -y \
+      SDL2 \
+      SDL2_mixer \
+      SDL2_image \
++     SDL2_ttf \
++     libffi \
++     libffi-devel \
+      cairo \
+      pango \
+      fontconfig \
+diff --git a/s/dev/msys/deps.sh b/s/dev/msys/deps.sh
+index d7a4237..9300b4d 100644
+--- a/s/dev/msys/deps.sh
++++ b/s/dev/msys/deps.sh
+@@ -1,8 +1,11 @@
+-pacman -S --noconfirm --needed git zip unzip \
++pacman -S --noconfirm --needed git zip unzip gcc \
++       libffi-devel \
++       libffi \
+        mingw64/mingw-w64-x86_64-zstd \
+        mingw64/mingw-w64-x86_64-SDL2 \
+        mingw64/mingw-w64-x86_64-SDL2_mixer \
+        mingw64/mingw-w64-x86_64-SDL2_image \
++       mingw64/mingw-w64-x86_64-SDL2_ttf \
+        mingw64/mingw-w64-x86_64-fontconfig \
+        mingw64/mingw-w64-x86_64-cairo \
+        mingw64/mingw-w64-x86_64-pango \

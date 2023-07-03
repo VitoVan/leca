@@ -1,0 +1,9 @@
+[submodule "lem"]
+	path = lem
+	url = https://github.com/lem-project/lem.git
+[submodule "log4cl"]
+	path = log4cl
+	url = https://github.com/sharplispers/log4cl.git
+[submodule "calm"]
+	path = calm
+	url = https://github.com/VitoVan/calm.git
