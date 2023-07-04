@@ -115,6 +115,7 @@ jobs:
           ls -lah
           tar xvf calm.tgz
           ls -lah calm
+          curl -o calm/lib/libasyncprocess.so -L https://github.com/lem-project/async-process/raw/master/static/x86_64/Linux/libasyncprocess.so
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R lem/frontends/sdl2/resources assets/resources
           cp -R log4cl calm/quicklisp/local-projects/log4cl
@@ -178,6 +179,7 @@ jobs:
           hdiutil attach calm.dmg
           cp -R "/Volumes/Calm - CALM/Calm.app/Contents/MacOS/" calm
           ls -lah calm
+          curl -o calm/lib/libasyncprocess.so -L https://github.com/lem-project/async-process/raw/master/static/x86_64/Darwin/libasyncprocess.so
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R lem/frontends/sdl2/resources assets/resources
           cp -R log4cl calm/quicklisp/local-projects/log4cl
@@ -234,6 +236,7 @@ jobs:
           pacman -S --noconfirm --needed unzip gcc libffi-devel
           unzip calm.zip
           ls -lah calm
+          curl -o calm/lib/libasyncprocess.dll -L https://github.com/lem-project/async-process/raw/master/static/x86_64/windows/libasyncprocess.dll
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R lem/frontends/sdl2/resources assets/resources
           cp -R log4cl calm/quicklisp/local-projects/log4cl
