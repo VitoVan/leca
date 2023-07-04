@@ -120,6 +120,7 @@ jobs:
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           export PATH=$PATH:$(pwd)/calm/
           export APP_NAME=Lem
+          export APP_ICON="$(pwd)/assets/lem.png"
           calm publish
           ls -lah .
 
@@ -182,9 +183,11 @@ jobs:
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           rm *.dmg
           export PATH=$PATH:$(pwd)/calm/
-          export APP_VERSION=999.9.9
-          export APP_ID=com.vitovan.leca
+          export APP_VERSION=2.0.0
+          export APP_ID=com.vitovan.lem
           export APP_NAME=Lem
+          export APP_ICON="$(pwd)/assets/lem.icns"
+          export DMG_ICON="$(pwd)/assets/lem-dmg.icns"
           calm publish
           ls -lah .
           mv *.dmg Lem${OS_SUBFIX}.dmg
@@ -235,6 +238,7 @@ jobs:
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           export PATH=$PATH:$(pwd)/calm/
+          export APP_ICON="$(pwd)/assets/lem.ico"
           export APP_NAME=Lem
           calm publish
           mv ./*-Installer.exe ./Lem.exe
