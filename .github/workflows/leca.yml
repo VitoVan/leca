@@ -115,7 +115,6 @@ jobs:
           ls -lah
           tar xvf calm.tgz
           ls -lah calm
-          cp -R lem/submodules/micros calm/quicklisp/local-projects/micros
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           export PATH=$PATH:$(pwd)/calm/
@@ -178,7 +177,6 @@ jobs:
           hdiutil attach calm.dmg
           cp -R "/Volumes/Calm - CALM/Calm.app/Contents/MacOS/" calm
           ls -lah calm
-          cp -R lem/submodules/micros calm/quicklisp/local-projects/micros
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           rm *.dmg
@@ -234,7 +232,6 @@ jobs:
           pacman -S --noconfirm --needed unzip gcc libffi-devel
           unzip calm.zip
           ls -lah calm
-          cp -R lem/submodules/micros calm/quicklisp/local-projects/micros
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           export PATH=$PATH:$(pwd)/calm/
