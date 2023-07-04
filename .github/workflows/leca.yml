@@ -118,7 +118,6 @@ jobs:
           curl -o calm/lib/libasyncprocess.so -L https://github.com/lem-project/async-process/raw/master/static/x86_64/Linux/libasyncprocess.so
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R lem/frontends/sdl2/resources assets/resources
-          cp -R log4cl calm/quicklisp/local-projects/log4cl
           export PATH=$PATH:$(pwd)/calm/
           export APP_NAME=Lem
           export APP_ICON="$(pwd)/assets/lem.png"
@@ -182,7 +181,6 @@ jobs:
           curl -o calm/lib/libasyncprocess.so -L https://github.com/lem-project/async-process/raw/master/static/x86_64/Darwin/libasyncprocess.so
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R lem/frontends/sdl2/resources assets/resources
-          cp -R log4cl calm/quicklisp/local-projects/log4cl
           rm *.dmg
           export PATH=$PATH:$(pwd)/calm/
           export APP_VERSION=2.0.0
@@ -239,7 +237,6 @@ jobs:
           curl -o calm/lib/libasyncprocess.dll -L https://github.com/lem-project/async-process/raw/master/static/x86_64/windows/libasyncprocess.dll
           cp -R lem calm/quicklisp/local-projects/lem
           cp -R lem/frontends/sdl2/resources assets/resources
-          cp -R log4cl calm/quicklisp/local-projects/log4cl
           export PATH=$PATH:$(pwd)/calm/
           export APP_ICON="$(pwd)/assets/lem.ico"
           export APP_NAME=Lem
