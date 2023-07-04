@@ -116,6 +116,7 @@ jobs:
           tar xvf calm.tgz
           ls -lah calm
           cp -R lem calm/quicklisp/local-projects/lem
+          cp -R lem/frontends/sdl2/resources assets/resources
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           export PATH=$PATH:$(pwd)/calm/
           export APP_NAME=Lem
@@ -178,6 +179,7 @@ jobs:
           cp -R "/Volumes/Calm - CALM/Calm.app/Contents/MacOS/" calm
           ls -lah calm
           cp -R lem calm/quicklisp/local-projects/lem
+          cp -R lem/frontends/sdl2/resources assets/resources
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           rm *.dmg
           export PATH=$PATH:$(pwd)/calm/
@@ -233,6 +235,7 @@ jobs:
           unzip calm.zip
           ls -lah calm
           cp -R lem calm/quicklisp/local-projects/lem
+          cp -R lem/frontends/sdl2/resources assets/resources
           cp -R log4cl calm/quicklisp/local-projects/log4cl
           export PATH=$PATH:$(pwd)/calm/
           export APP_ICON="$(pwd)/assets/lem.ico"
