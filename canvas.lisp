@@ -1,5 +1,7 @@
 (in-package :calm)
 
+(ql:quickload :swank)
+
 (ql:quickload :lem-sdl2)
 
 ;; override CALM entry point
